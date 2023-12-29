@@ -111,9 +111,7 @@ export const CharacterController = ({
     // Check if fire button is pressed
     if (joystick.isPressed("fire")) {
       // fire
-      setAnimation(
-        joystick.isJoystickPressed() && angle ? "Run_Shoot" : "Idle_Shoot",
-      );
+      setAnimation(joystick.isJoystickPressed() && angle ? "Run_Gun" : "Duck");
       if (isHost()) {
         if (Date.now() - lastShoot.current > FIRE_RATE) {
           lastShoot.current = Date.now();
@@ -185,27 +183,19 @@ export const CharacterController = ({
       >
         <PlayerInfo state={state.state} />
         <group ref={character}>
-          {state.model_num == 1 && (
-            <CharacterSoldier
-              color={state.state.profile?.color}
-              animation={animation}
-              weapon={weapon}
-            />
-          )}
-
-          {state.state.model_num == 2 && (
+          {state.state.model_num == 1 && (
             <AstronautFrog
               color={state.state.profile?.color}
               animation={animation}
             />
           )}
-          {state.state.model_num == 3 && (
+          {state.state.model_num == 2 && (
             <AstronautBee
               color={state.state.profile?.color}
               animation={animation}
             />
           )}
-          {state.state.model_num == 4 && (
+          {state.state.model_num == 3 && (
             <AstronautPanda
               color={state.state.profile?.color}
               animation={animation}

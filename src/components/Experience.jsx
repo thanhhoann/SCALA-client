@@ -31,7 +31,7 @@ export const Experience = ({ downgradedPerformance = false }) => {
       state.setState("health", 100);
       state.setState("deaths", 0);
       state.setState("kills", 0);
-      state.setState("model_num", Math.floor(Math.random() * 4) + 1);
+      state.setState("model_num", Math.floor(Math.random() * 3) + 1);
       setPlayers((players) => [...players, newPlayer]);
       state.onQuit(() => {
         setPlayers((players) => players.filter((p) => p.state.id !== state.id));
